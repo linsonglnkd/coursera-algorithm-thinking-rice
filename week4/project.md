@@ -27,9 +27,9 @@ The second function computes an alignment matrix using the method **ComputeGloba
 ### Alignment functions
 For the second part of Project 4, you will use the alignment matrix returned by compute_alignment_matrix to compute global and local alignments of two sequences seq_x and seq_y. The first function will implement the method ComputeAlignment discussed in Question 9 of the Homework.
 
-    compute_global_alignment(seq_x, seq_y, scoring_matrix, alignment_matrix): Takes as input two sequences seq_x and seq_y whose elements share a common alphabet with the scoring matrix scoring_matrix. This function computes a global alignment of seq_x and seq_y using the global alignment matrix alignment_matrix.
+* `compute_global_alignment(seq_x, seq_y, scoring_matrix, alignment_matrix):` Takes as input two sequences `seq_x` and `seq_y` whose elements share a common alphabet with the scoring matrix `scoring_matrix`. This function computes a global alignment of `seq_x` and `seq_y` using the global alignment matrix `alignment_matrix`.
 
-    The function returns a tuple of the form (score, align_x, align_y) where score is the score of the global alignment align_x and align_y. Note that align_x and align_y should have the same length and may include the padding character '-'.
+The function returns a tuple of the form `(score, align_x, align_y)` where score is the score of the global alignment `align_x` and `align_y`. Note that `align_x` and `align_y` should have the same length and may include the padding character '-'.
 
 This second function will compute an optimal local alignment starting at the maximum entry of the local alignment matrix and working backwards to zero as described in Question 13 of the Homework.
 
