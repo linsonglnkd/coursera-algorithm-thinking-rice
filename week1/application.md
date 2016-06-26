@@ -58,3 +58,7 @@ We next consider a different process for generating synthetic directed graphs. I
 The algorithm starts by creating a complete directed graph on *m* nodes. (Note, you've already written the code for this part in the Project.) Then, the algorithm grows the graph by adding *n−m* nodes, where each new node is connected to *m* nodes randomly chosen from the set of existing nodes. As an existing node may be chosen more than once in an iteration, we eliminate duplicates (to avoid parallel edges); hence, the new node may be connected to fewer than *m* existing nodes upon its addition.
 
 The full description of the algorithm for generating random directed graphs with this process is given below, and is called Algorithm DPA (note that the *m* in the input is a parameter that is specified to this algorithm, and it does not denote the total number of edges in the resulting graph). The notation *∑x∈Sx* means the "sum of all elements x in set *S*." For example, if *S={1,7,12}*, then ∑<sub>x∈S</sub>x ≡ 1 + 7 + 12 = 20. 
+
+![][DPA_Graph]
+
+[DPA_Graph]:https://github.com/linsonglnkd/coursera-algorithm-thinking-rice/blob/master/week1/DPA.jpg
