@@ -61,4 +61,32 @@ The full description of the algorithm for generating random directed graphs with
 
 ![][DPA_Graph]
 
+ Notice that this algorithm is more complex than the **ER** algorithm. As a result, reasoning about the properties of the graphs that it generates analytically is not as simple. When such a scenario arises, we can implement the algorithm, run it, produce graphs, and visually inspect their in-degree distributions. In general, this is a powerful technique: When analytical solutions to systems are very hard to derive, we can simulate the systems and generate data that can be analyzed to understand the properties of the systems.
+
+For this question, we will choose values for n and m that yield a DPA graph whose number of nodes and edges is roughly the same to those of the citation graph. For the nodes, choosing n to be the number of nodes as the citation graph is easy. Since each step in the DPA algorithm adds m edges to the graph, a good choice for m is an integer that is close to the average out-degree of the physics citation graph.
+
+For this question, provide numerical values for n and m that you will use in your construction of the DPA graph.
+
+---
+
+### Question 4 (3 pts)
+
+Your task for this question is to implement the DPA algorithm, compute a DPA graph using the values from Question 3, and then plot the in-degree distribution for this DPA graph. Creating an efficient implementation of the DPA algorithm from scratch is surprisingly tricky. The key issue in implementing the algorithm is to avoid iterating through every node in the graph when executing Line 6. Using a loop to implement Line 6 leads to implementations that require on the order of 30 minutes in desktop Python to create a DPA graph with 28000 nodes.
+
+To avoid this bottleneck, you are welcome to use this [provided code](http://www.codeskulptor.org/#alg_dpa_trial.py) that implements a `DPATrial` class. The class has two methods:
+
+* `__init__(num_nodes)`: Create a `DPATrial` object corresponding to a complete graph with `num_nodes` nodes.
+* `run_trial(num_nodes)`: Runs `num_nodes` number of DPA trials (lines 4- 6). Returns a set of the nodes, computed with the correct probabilities, that are neighbors of the new node. 
+
+In the provided code, the `DPATrial` class maintains a list of node numbers that contains multiple instances of the same node number. If the number of instances of each node number is maintained in the same ratio as the desired probabilities, a call to `random.choice()` produces a random node number with the desired probability.
+
+Using this provided code, implementing the DPA algorithm is fairly simple and leads to an efficient implementation of the algorithm. In particular, computing a DPA graph with 28000 nodes should take on the order of 10-20 seconds in CodeSkulptor. For a challenge, you are also welcome to develop your own implementation of the DPA algorithm that does not use this provided code. However, we recommend that you use desktop Python as your development environment since you are likely to encounter long running times.
+
+Once you have created a DPA graph of the appropriate size, compute a (normalized) log/log plot of the points in the graph's in-degree distribution, and upload your plot in the box below using the "Attach a file" button. (Note that you do not need to upload or machine-grade your DPA code.) Your submitted plot will be assessed based on the answers to the following three questions:
+
+* Does the plot follow the formatting guidelines for plots?
+* Is the plot a log/log plot of a normalized distribution?
+* Is the content of the plot correct? 
+
+
 [DPA_Graph]:https://github.com/linsonglnkd/coursera-algorithm-thinking-rice/blob/master/week1/DPA.jpg
