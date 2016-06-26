@@ -34,3 +34,27 @@ Once you have created your plot, upload your plot in the box below using "Attach
 * Does the plot follow the formatting guidelines for plots?
 * Is the plot that of a normalized distribution on a log/log scale?
 * Is the content of the plot correct? 
+
+---
+
+###Question 2 (3 pts)
+
+In Homework 1, you saw Algorithm **ER** for generating random graphs and reasoned analytically about the properties of the ER graphs it generates. Consider the simple modification of the algorithm to generate random *directed* graphs: For every ordered pair of distinct nodes *(i,j)*, the modified algorithm adds the directed edge from *i* to *j* with probability *p*.
+
+For this question, your task is to consider the shape of the in-degree distribution for an ER graph and compare its shape to that of the physics citation graph. In the homework, we considered the probability of a specific in-degree, *k*, for a single node.  Now, we are interested in the in-degree distribution for the entire ER graph. To determine the shape of this distribution, you are welcome to compute several examples of in-degree distributions or determine the shape mathematically.
+
+Once you have determined the shape of the in-degree distributions for ER graphs, compare the shape of this distribution to the shape of the in-degree distribution for the citation graph. When answering this question, make sure to address the following points:
+
+* Is the expected in-degree the same for every node in an ER graph? Please answer yes or no and include a short explanation for your answer.
+* What does the in-degree distribution for an ER graph look like? You may either provide a plot (linear or log/log) of the degree distribution for a small value of n or a short written description of the shape of the distribution.
+* Does the shape of the in-degree distribution plot for ER look similar to the shape of the in-degree distribution for the citation graph? Provide a short explanation of the similarities or differences. Focus on comparing the shape of the two plots as discussed in the class page on "Creating, formatting, and comparing plots". 
+
+---
+
+### Question 3 (2 pts)
+
+We next consider a different process for generating synthetic directed graphs. In this process, a random directed graph is generated iteratively, where in each iteration a new node is created, added to the graph, and connected to a subset of the existing nodes. This subset is chosen based on the in-degrees of the existing nodes. More formally, to generate a random directed graph in this process, the user must specify two parameters: *n*, which is the final number of nodes, and *m* (where *m≤n*), which is the number of existing nodes to which a new node is connected during each iteration. Notice that *m* is fixed throughout the procedure.
+
+The algorithm starts by creating a complete directed graph on *m* nodes. (Note, you've already written the code for this part in the Project.) Then, the algorithm grows the graph by adding *n−m* nodes, where each new node is connected to *m* nodes randomly chosen from the set of existing nodes. As an existing node may be chosen more than once in an iteration, we eliminate duplicates (to avoid parallel edges); hence, the new node may be connected to fewer than *m* existing nodes upon its addition.
+
+The full description of the algorithm for generating random directed graphs with this process is given below, and is called Algorithm DPA (note that the *m* in the input is a parameter that is specified to this algorithm, and it does not denote the total number of edges in the resulting graph). The notation *∑x∈Sx* means the "sum of all elements x in set *S*." For example, if *S={1,7,12}*, then ∑<sub>x∈S</sub>x ≡ 1 + 7 + 12 = 20. 
